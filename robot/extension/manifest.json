@@ -1,0 +1,9 @@
+{
+    "name":"Fuck you EPROC",
+    "version":"1.0",
+    "description":"Permite Colar texto em campos desativos pelo EPROC",
+    "browser_action":{
+        "default_popup":"index.html"
+    },
+    "manifest_version":2
+}

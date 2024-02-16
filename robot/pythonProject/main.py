@@ -2,8 +2,9 @@ import time
 
 import clipboard
 import pyautogui
-from pymsgbox import prompt
+from pymsgbox import *
 
+"""
 #volta para o navegador
 
 pyautogui.hotkey('alt', 'tab')
@@ -21,6 +22,10 @@ pyautogui.press('enter')
 time.sleep(1)
 
 #Entrada dos Dados
+
+# tipo da cda
+
+resposta = confirm(text='', title='', buttons=['IPTU', 'TLFF', 'ISSQN', 'TAXA'])
 
 #Valor Total da CDA
 
@@ -133,11 +138,21 @@ time.sleep(1)
 pyautogui.press('tab')
 time.sleep(1)
 
-# Marca o Tributo Fiscal como IPTU
+# Marca o Tributo Fiscal como DIV.ATIVA-IPTU
 
 pyautogui.press('tab')
 time.sleep(1)
-pyautogui.press('i')
+if resposta == 'IPTU':
+    for x in range(0, 7):
+        pyautogui.press('down')
+elif resposta == 'TLFF':
+    for x in range(0, 6):
+        pyautogui.press('down')
+elif resposta == 'ISSQN':
+    for x in range(0, 9):
+        pyautogui.press('down')
+elif resposta == 'TAXA':
+        pyautogui.press('end')
 time.sleep(1)
 
 # Acessa a Data de Origem
@@ -165,3 +180,29 @@ pyautogui.press('tab')
 time.sleep(1)
 clipboard.copy(valorDaCausa)
 pyautogui.hotkey('ctrl', 'v')
+
+# Inclui a CDA e salva
+
+pyautogui.press('tab')
+time.sleep(1)
+pyautogui.press('enter')
+time.sleep(1)
+pyautogui.press('tab')
+time.sleep(1)
+pyautogui.press('enter')
+time.sleep(1)
+
+"""
+# Proxima Etapa
+"""
+pyautogui.hotkey('alt', 'tab')
+pyautogui.click(x=1572, y=429)
+for x in range(0, 10):
+    pyautogui.press('tab')
+"""
+
+pyautogui.hotkey('alt', 'tab')
+time.sleep(1)
+pyautogui.click(x=1572, y=429)
+time.sleep(1)
+pyautogui.click('Impostos')

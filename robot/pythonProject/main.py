@@ -4,7 +4,7 @@ import clipboard
 import pyautogui
 from pymsgbox import *
 
-"""
+
 #volta para o navegador
 
 pyautogui.hotkey('alt', 'tab')
@@ -192,14 +192,13 @@ time.sleep(1)
 pyautogui.press('enter')
 time.sleep(1)
 
-"""
+
 # Proxima Etapa
-"""
+
 pyautogui.hotkey('alt', 'tab')
 pyautogui.click(x=1572, y=429)
 for x in range(0, 10):
     pyautogui.press('tab')
-"""
 
 pyautogui.hotkey('alt', 'tab')
 time.sleep(1)

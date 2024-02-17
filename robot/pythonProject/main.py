@@ -27,9 +27,17 @@ time.sleep(1)
 
 resposta = confirm(text='', title='', buttons=['IPTU', 'TLFF', 'ISSQN', 'TAXA'])
 
+# cpf ou cnpj
+
+
+
+
+#Copia cpf ou cnpj
+
+
 #Valor Total da CDA
 
-valorTotalDaCDA = prompt(text='VALOR TOTAL DA CDA', title='CDA', default='')
+valorTotalDaCDA = prompt(text='VALOR DA CAUSA', title='CDA', default='')
 valorFormatado = valorTotalDaCDA.replace("[R$., ]" ,"")
 time.sleep(1)
 
@@ -45,7 +53,7 @@ time.sleep(1)
 
 # Valor da Causa
 
-valorDaCausa = prompt(text='Valor da CDA / CAUSA', title='CDA', default='')
+valorDaCausa = prompt(text='Valor da CDA', title='CDA', default='')
 time.sleep(1)
 
 # Volta para o Site do EPROC e clica no meio da Tela
@@ -145,12 +153,15 @@ time.sleep(1)
 if resposta == 'IPTU':
     for x in range(0, 7):
         pyautogui.press('down')
+
 elif resposta == 'TLFF':
     for x in range(0, 6):
         pyautogui.press('down')
+
 elif resposta == 'ISSQN':
     for x in range(0, 9):
         pyautogui.press('down')
+
 elif resposta == 'TAXA':
         pyautogui.press('end')
 time.sleep(1)
@@ -195,13 +206,125 @@ time.sleep(1)
 
 # Proxima Etapa
 
-pyautogui.hotkey('alt', 'tab')
+#pyautogui.hotkey('alt', 'tab')
 pyautogui.click(x=1572, y=429)
+for x in range(0, 11):
+    pyautogui.press('tab')
+pyautogui.press('enter')
+time.sleep(1)
+
+# 2 / 5 Assuntos
+
+#Acessa o Campo do Assunto
+pyautogui.press('tab')
+time.sleep(1)
+pyautogui.press('tab')
+time.sleep(1)
+if resposta == 'IPTU':
+    time.sleep(1)
+    pyautogui.write('IPTU')
+    time.sleep(1)
+    pyautogui.press('enter')
+    time.sleep(1)
+    pyautogui.moveTo(214, 478)
+    time.sleep(1)
+    pyautogui.click()
+elif resposta == 'ISSQN':
+    time.sleep(1)
+    pyautogui.write('Imposto Sobre Servicos')
+    time.sleep(1)
+    pyautogui.press('enter')
+    time.sleep(1)
+    pyautogui.moveTo(201,478)
+    time.sleep(1)
+    pyautogui.click()
+
+elif resposta == 'TLFF':
+    time.sleep(1)
+    pyautogui.write('Taxa de Licenciamento de Estabelecimento')
+    time.sleep(1)
+    pyautogui.press('enter')
+    time.sleep(1)
+    pyautogui.moveTo(266,499)
+    pyautogui.click()
+time.sleep(1)
+
+# Inclui o Assunto
+for x in range(0, 5):
+    pyautogui.press('tab')
+pyautogui.press('enter')
+time.sleep(1)
+
+# Avança 3 / 5 Parte Autora
+
+pyautogui.moveTo(1773, 647)
+time.sleep(1)
+pyautogui.click()
+time.sleep(1)
+
+# Seleciona a Entidade
+
+pyautogui.press('tab')
+time.sleep(1)
+pyautogui.press('down')
+
+# faz a inclusão da entidade
+
+pyautogui.press('tab')
+time.sleep(1)
+pyautogui.press('tab')
+time.sleep(1)
+pyautogui.press('enter')
+time.sleep(1)
+
+#vai para o prox campo
+
+for x in range(0, 6):
+    pyautogui.press('tab')
+pyautogui.press('enter')
+
+# Parte 4
+
+# Tipo de pessoa
+
+tipoDePessoa = confirm(text='Selecione o Tipo de Pessoa', title='', buttons=['PESSOA FISICA', 'PESSOA JURIDICA'])
+
+if tipoDePessoa == 'PESSOA FISICA':
+    cpf = prompt(text='Digite o CPF', title='CPF', default='')
+    clipboard.copy(cpf)
+    pyautogui.click(327,305)
+    pyautogui.press('tab')
+    time.sleep(1)
+    pyautogui.press('tab')
+    time.sleep(1)
+    pyautogui.hotkey('ctrl', 'v')
+
+else:
+    cnpj = prompt(text='Digite o CNPJ', title='CNPJ', default='')
+    clipboard.copy(cnpj)
+    pyautogui.click(327, 305)
+    time.sleep(1)
+    pyautogui.press('tab')
+    time.sleep(1)
+    pyautogui.press('down')
+    time.sleep(1)
+    pyautogui.press('tab')
+    time.sleep(1)
+    pyautogui.hotkey('ctrl', 'v')
+
+for x in range(0, 5):
+    pyautogui.press('tab')
+    time.sleep(0.5)
+pyautogui.press('enter')
+
 for x in range(0, 10):
     pyautogui.press('tab')
+    time.sleep(0.5)
 
-pyautogui.hotkey('alt', 'tab')
-time.sleep(1)
-pyautogui.click(x=1572, y=429)
-time.sleep(1)
-pyautogui.click('Impostos')
+pyautogui.press('enter')
+
+for x in range(0, 6):
+    pyautogui.press('tab')
+    time.sleep(0.5)
+pyautogui.press('enter')
+

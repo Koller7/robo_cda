@@ -17,60 +17,53 @@ time.sleep(0.5)
 pyautogui.write('Peticao inicial')
 time.sleep(0.5)
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('enter')
-time.sleep(1)
+time.sleep(0.5)
 
 #Entrada dos Dados
 
 # tipo da cda
 
-resposta = confirm(text='', title='', buttons=['IPTU', 'TLFF', 'ISSQN', 'TAXA'])
-
-# cpf ou cnpj
-
-
-
-
-#Copia cpf ou cnpj
+resposta = confirm(text='', title='', buttons=['IPTU', 'TLLF', 'ISSQN'])
 
 
 #Valor Total da CDA
 
 valorTotalDaCDA = prompt(text='VALOR DA CAUSA', title='CDA', default='')
 valorFormatado = valorTotalDaCDA.replace("[R$., ]" ,"")
-time.sleep(1)
+time.sleep(0.5)
 
 #Numero da CDA
 
 numeroDaCda = prompt(text='NUMERO CDA', title='CDA', default='')
-time.sleep(1)
+time.sleep(0.5)
 
 #Data de Origem
 
 dataDeOrigem = prompt(text='Data da Origem', title='CDA', default='')
-time.sleep(1)
+time.sleep(0.5)
 
 # Valor da Causa
 
 valorDaCausa = prompt(text='Valor da CDA', title='CDA', default='')
-time.sleep(1)
+time.sleep(0.5)
 
 # Volta para o Site do EPROC e clica no meio da Tela
 
 pyautogui.hotkey('alt', 'tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.click(x=1572, y=429)
-time.sleep(1)
+time.sleep(0.5)
 
 #Acessa o Campo de Ação que seleciona o Municipio
 
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('enter')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('s')
-time.sleep(1)
+time.sleep(0.5)
 
 for municipio in range(0, 18):
     pyautogui.press('down')
@@ -123,103 +116,100 @@ for toValorTotal in range(0, 3):
 clipboard.copy(valorFormatado)
 time.sleep(0.5)
 pyautogui.hotkey('ctrl', 'v')
-time.sleep(1)
+time.sleep(0.5)
 
 #acessa a aba de adicionar CDA
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('enter')
-time.sleep(1)
+time.sleep(0.5)
 
 #Acessa o Campo do Numero da CDA
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 clipboard.copy(numeroDaCda)
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.hotkey('ctrl', 'v')
-time.sleep(1)
+time.sleep(0.5)
 
 # pula o numero administrativo
 
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 
 # Marca o Tributo Fiscal como DIV.ATIVA-IPTU
 
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 if resposta == 'IPTU':
     for x in range(0, 7):
         pyautogui.press('down')
 
-elif resposta == 'TLFF':
-    for x in range(0, 6):
+elif resposta == 'TLLF':
+    for x in range(0, 18):
         pyautogui.press('down')
 
 elif resposta == 'ISSQN':
     for x in range(0, 9):
         pyautogui.press('down')
-
-elif resposta == 'TAXA':
-        pyautogui.press('end')
-time.sleep(1)
+time.sleep(0.5)
 
 # Acessa a Data de Origem
 
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('tab')
 clipboard.copy(dataDeOrigem)
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.hotkey('ctrl', 'v')
-time.sleep(1)
+time.sleep(0.5)
 
 # Acessa o Campo de Status da CDA
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('end')
 
 # Acessa o Campo de Valor da CDA
 
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 clipboard.copy(valorDaCausa)
 pyautogui.hotkey('ctrl', 'v')
 
 # Inclui a CDA e salva
 
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('enter')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('enter')
-time.sleep(1)
+time.sleep(0.5)
 
 
 # Proxima Etapa
 
-#pyautogui.hotkey('alt', 'tab')
+pyautogui.hotkey('alt', 'tab')
 pyautogui.click(x=1572, y=429)
 for x in range(0, 11):
     pyautogui.press('tab')
 pyautogui.press('enter')
-time.sleep(1)
+time.sleep(0.5)
 
 # 2 / 5 Assuntos
 
 #Acessa o Campo do Assunto
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 pyautogui.press('tab')
-time.sleep(1)
+time.sleep(0.5)
 if resposta == 'IPTU':
     time.sleep(1)
     pyautogui.write('IPTU')
@@ -235,19 +225,21 @@ elif resposta == 'ISSQN':
     time.sleep(1)
     pyautogui.press('enter')
     time.sleep(1)
-    pyautogui.moveTo(201,478)
+    pyautogui.moveTo(201, 478)
     time.sleep(1)
     pyautogui.click()
 
-elif resposta == 'TLFF':
+elif resposta == 'TLLF':
     time.sleep(1)
     pyautogui.write('Taxa de Licenciamento de Estabelecimento')
     time.sleep(1)
     pyautogui.press('enter')
     time.sleep(1)
-    pyautogui.moveTo(266,499)
+    pyautogui.moveTo(266, 499)
+    time.sleep(1)
     pyautogui.click()
-time.sleep(1)
+
+time.sleep(0.5)
 
 # Inclui o Assunto
 for x in range(0, 5):
@@ -281,9 +273,8 @@ time.sleep(1)
 
 for x in range(0, 6):
     pyautogui.press('tab')
+time.sleep(1)
 pyautogui.press('enter')
-
-# Parte 4
 
 # Tipo de pessoa
 
@@ -294,22 +285,22 @@ if tipoDePessoa == 'PESSOA FISICA':
     clipboard.copy(cpf)
     pyautogui.click(327,305)
     pyautogui.press('tab')
-    time.sleep(1)
+    time.sleep(0.5)
     pyautogui.press('tab')
-    time.sleep(1)
+    time.sleep(0.5)
     pyautogui.hotkey('ctrl', 'v')
 
 else:
     cnpj = prompt(text='Digite o CNPJ', title='CNPJ', default='')
     clipboard.copy(cnpj)
     pyautogui.click(327, 305)
-    time.sleep(1)
+    time.sleep(0.5)
     pyautogui.press('tab')
-    time.sleep(1)
+    time.sleep(0.5)
     pyautogui.press('down')
-    time.sleep(1)
+    time.sleep(0.5)
     pyautogui.press('tab')
-    time.sleep(1)
+    time.sleep(0.5)
     pyautogui.hotkey('ctrl', 'v')
 
 for x in range(0, 5):
@@ -328,3 +319,4 @@ for x in range(0, 6):
     time.sleep(0.5)
 pyautogui.press('enter')
 
+pyautogui.alert('RPA CONCLUIDO')

@@ -32,27 +32,27 @@ resposta = confirm(text='', title='', buttons=['IPTU', 'TLLF', 'ISSQN'])
 
 valorTotalDaCDA = prompt(text='VALOR DA CAUSA', title='CDA', default='')
 valorFormatado = valorTotalDaCDA.replace("[R$., ]" ,"")
-time.sleep(0.5)
+
 
 #Numero da CDA
 
 numeroDaCda = prompt(text='NUMERO CDA', title='CDA', default='')
-time.sleep(0.5)
+
 
 #Data de Origem
 
 dataDeOrigem = prompt(text='Data da Origem', title='CDA', default='')
-time.sleep(0.5)
 
 # Valor da Causa
 
 valorDaCausa = prompt(text='Valor da CDA', title='CDA', default='')
-time.sleep(0.5)
+
 
 # Volta para o Site do EPROC e clica no meio da Tela
 
-pyautogui.hotkey('alt', 'tab')
+# pyautogui.hotkey('alt', 'tab')
 time.sleep(0.5)
+pyautogui.hotkey('alt', 'tab')
 pyautogui.click(x=1572, y=429)
 time.sleep(0.5)
 
@@ -196,10 +196,11 @@ time.sleep(0.5)
 
 # Proxima Etapa
 
-pyautogui.hotkey('alt', 'tab')
+#pyautogui.hotkey('alt', 'tab') se forem duas telas
 pyautogui.click(x=1572, y=429)
 for x in range(0, 11):
     pyautogui.press('tab')
+    time.sleep(0.5)
 pyautogui.press('enter')
 time.sleep(0.5)
 
@@ -244,6 +245,7 @@ time.sleep(0.5)
 # Inclui o Assunto
 for x in range(0, 5):
     pyautogui.press('tab')
+    time.sleep(0.5)
 pyautogui.press('enter')
 time.sleep(1)
 
@@ -273,6 +275,7 @@ time.sleep(1)
 
 for x in range(0, 6):
     pyautogui.press('tab')
+    time.sleep(0.5)
 time.sleep(1)
 pyautogui.press('enter')
 
@@ -282,7 +285,10 @@ tipoDePessoa = confirm(text='Selecione o Tipo de Pessoa', title='', buttons=['PE
 
 if tipoDePessoa == 'PESSOA FISICA':
     cpf = prompt(text='Digite o CPF', title='CPF', default='')
+    #pyautogui.hotkey('alt', 'tab') se for uma tela só tirar o comentario dessas duas linhas
+    #pyautogui.hotkey('alt', 'tab') X
     clipboard.copy(cpf)
+    time.sleep(0.5)
     pyautogui.click(327,305)
     pyautogui.press('tab')
     time.sleep(0.5)
@@ -293,6 +299,7 @@ if tipoDePessoa == 'PESSOA FISICA':
 else:
     cnpj = prompt(text='Digite o CNPJ', title='CNPJ', default='')
     clipboard.copy(cnpj)
+    time.sleep(0.5)
     pyautogui.click(327, 305)
     time.sleep(0.5)
     pyautogui.press('tab')
@@ -319,4 +326,4 @@ for x in range(0, 6):
     time.sleep(0.5)
 pyautogui.press('enter')
 
-pyautogui.alert('RPA CONCLUIDO')
+pyautogui.alert('PROCESSO CONCLUIDO')

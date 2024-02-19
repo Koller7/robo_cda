@@ -200,9 +200,10 @@ time.sleep(0.5)
 pyautogui.click(x=1572, y=429)
 for x in range(0, 11):
     pyautogui.press('tab')
-    time.sleep(0.5)
-pyautogui.press('enter')
+    #time.sleep(0.5)
 time.sleep(0.5)
+pyautogui.press('enter')
+time.sleep(3)
 
 # 2 / 5 Assuntos
 
@@ -254,7 +255,7 @@ time.sleep(1)
 pyautogui.moveTo(1773, 647)
 time.sleep(1)
 pyautogui.click()
-time.sleep(1)
+time.sleep(3)
 
 # Seleciona a Entidade
 
@@ -278,7 +279,6 @@ for x in range(0, 6):
     time.sleep(0.5)
 time.sleep(1)
 pyautogui.press('enter')
-
 # Tipo de pessoa
 
 tipoDePessoa = confirm(text='Selecione o Tipo de Pessoa', title='', buttons=['PESSOA FISICA', 'PESSOA JURIDICA'])
@@ -314,8 +314,8 @@ for x in range(0, 5):
     pyautogui.press('tab')
     time.sleep(0.5)
 pyautogui.press('enter')
-
-for x in range(0, 10):
+time.sleep(3)
+for x in range(0, 9):
     pyautogui.press('tab')
     time.sleep(0.5)
 
